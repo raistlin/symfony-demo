@@ -3,22 +3,56 @@ Symfony Demo Application
 
 [![Build Status](https://travis-ci.org/Codeception/symfony-demo.svg?branch=2.1)](https://travis-ci.org/Codeception/symfony-demo)
 
-We use official "Symfony Demo Application" to demonstrate basics of Codeception functional tests. Check out `tests` directory to see functional and unit tests included. We use [Symfony2](http://codeception.com/docs/modules/Symfony2) and [Doctrine2](http://codeception.com/docs/modules/Doctrine2) modules for zero-configuration Symfony testing.
+We use official "Symfony Demo Application" to demonstrate basics of Codeception testing.
+
+![demopic](app/data/demo.png)
+
+There are **acceptance**, **functional**, and **unit** tests included.
+Acceptance tests are located in the `tests/acceptance` directory in the root of a project,
+while `functional`/`unit` tests are included in `src/AppBundle/test`.
+
+Codeception executes acceptance tests globally and all tests included in bundles.
 
 ## Run Codeception Tests
 
 ```
 composer install -n
 php app/console doctrine:fixtures:load -n --env test
+php app/consoler server:start
 php bin/codecept run
 ```
 
-Below goes official README of Symfony Demo Application:
+### Unit and Functional Tests
+
+Unit and Functional tests are supposed to be located in corresponding Bundle. A simple Codeception configuration was created `src/AppBundle`.
+Codeception is configured (in `src/AppBundle/codeception.yml`) to use `app` directory for handling logs and data.
+
+Tests are loaded from `src/AppBundle/test` (we didn't use `Tests` folder to separate symfony-demo original tests and tests of Codeception).
+Unit tests can be executed from `src/AppBundle` dir:
+
+```
+php bin/codecept run -c src/AppBundle
+```
+
+## Acceptance Tests
+
+Acceptance tests require web server to be started. They interact with application as regular user would do.
+Ideally, this should include browser testing, however we use browser emulator PhpBrowser to do some basic testing.
+
+```
+php bin/codecept run acceptnace
+```
+
+-------
+
+## Below goes official README of Symfony Demo Application:
 
 ---
 
 The "Symfony Demo Application" is a reference application created to show how
 to develop Symfony applications following the recommended best practices.
+
+[![Build Status](https://travis-ci.org/symfony/symfony-demo.svg?branch=master)](https://travis-ci.org/symfony/symfony-demo)
 
 Requirements
 ------------
@@ -26,6 +60,10 @@ Requirements
   * PHP 5.3 or higher;
   * PDO-SQLite PHP extension enabled;
   * and the [usual Symfony application requirements](http://symfony.com/doc/current/reference/requirements.html).
+
+If unsure about meeting these requirements, download the demo application and
+browse the `http://localhost:8000/check.php` script to get more detailed
+information.
 
 Installation
 ------------
