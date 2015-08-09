@@ -8,7 +8,6 @@ env:
 matrix:
   fast_finish: true
   include:
-    - php: 5.4
     - php: 5.5
     - php: 5.6
     - php: 5.6
@@ -33,6 +32,8 @@ install:
   - composer install -n
 
 before_script:
+  - php app/console doctrine:schema:create -n
+  - php app/console doctrine:fixtures:load -n
   - php app/console doctrine:schema:create -n --env test
   - php app/console doctrine:fixtures:load -n --env test
   - php app/console server:start
