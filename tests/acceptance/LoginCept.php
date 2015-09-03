@@ -3,7 +3,7 @@ $I = new AcceptanceTester($scenario);
 $I->wantTo('login as admin to backend');
 $I->amOnPage('/');
 $I->click('Browse backend');
-$I->seeInCurrentUrl('/login');
+$I->seeInCurrentUrl('/en/login');
 $I->see('Secure Sign in', 'legend');
 $I->fillField('Username', 'anna_admin');
 $I->fillField('Password', 'kitten');

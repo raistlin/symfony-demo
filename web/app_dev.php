@@ -30,7 +30,13 @@ Debug::enable();
 
 require_once __DIR__.'/../app/AppKernel.php';
 
-$kernel = new AppKernel('dev', true);
+// We can support different env
+$applicationEnv = 'dev';
+if (!empty($_SERVER['HTTP_ENV']) && in_array($_SERVER['HTTP_ENV'], array('test', 'dev'), true)) {
+    $applicationEnv = $_SERVER['HTTP_ENV'];
+}
+
+$kernel = new AppKernel($applicationEnv, true);
 $kernel->loadClassCache();
 $request = Request::createFromGlobals();
 $response = $kernel->handle($request);
