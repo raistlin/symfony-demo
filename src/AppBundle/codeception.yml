@@ -1,4 +1,4 @@
-# we sprcify a namespace for this bundle
+# we specify a namespace for this bundle
 # to include those tests into global suite
 namespace: AcmeBundle
 actor: Tester
