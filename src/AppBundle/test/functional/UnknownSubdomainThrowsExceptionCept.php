@@ -1,5 +1,5 @@
 <?php
-$I = new FunctionalTester($scenario);
+$I = new AcmeBundle\FunctionalTester($scenario);
 $I->wantTo('get exception on unknown subdomain route');
 
 try {
