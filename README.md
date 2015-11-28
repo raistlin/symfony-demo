@@ -17,8 +17,9 @@ Codeception executes acceptance tests globally and all tests included in bundles
 
 ```
 composer install -n
+php app/console doctrine:schema:update --force --env test
 php app/console doctrine:fixtures:load -n --env test
-php app/consoler server:start
+php app/console server:start
 php bin/codecept run
 ```
 
@@ -40,7 +41,7 @@ Acceptance tests require web server to be started. They interact with applicatio
 Ideally, this should include browser testing, however we use browser emulator PhpBrowser to do some basic testing.
 
 ```
-php bin/codecept run acceptnace
+php bin/codecept run acceptance
 ```
 
 -------
