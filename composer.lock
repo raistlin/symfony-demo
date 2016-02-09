@@ -1997,16 +1997,16 @@
     "packages-dev": [
         {
             "name": "codeception/codeception",
-            "version": "2.1.5",
+            "version": "2.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/Codeception.git",
-                "reference": "4ee562f421fd404139dd7b73ae46d075396a4baf"
+                "reference": "cdc857cfa68af4089a3e64f991b99bc0ecbd4254"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/Codeception/zipball/4ee562f421fd404139dd7b73ae46d075396a4baf",
-                "reference": "4ee562f421fd404139dd7b73ae46d075396a4baf",
+                "url": "https://api.github.com/repos/Codeception/Codeception/zipball/cdc857cfa68af4089a3e64f991b99bc0ecbd4254",
+                "reference": "cdc857cfa68af4089a3e64f991b99bc0ecbd4254",
                 "shasum": ""
             },
             "require": {
@@ -2073,7 +2073,7 @@
                 "functional testing",
                 "unit testing"
             ],
-            "time": "2015-12-20 12:11:42"
+            "time": "2016-02-09 22:18:04"
         },
         {
             "name": "facebook/webdriver",
